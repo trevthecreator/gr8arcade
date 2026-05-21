@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1a1423">
+<meta name="description" content="A small arcade of handmade browser games.">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%231a1423'/%3E%3Ctext x='90' y='118' font-family='Courier' font-size='80' font-weight='900' fill='%23e8d5a0' text-anchor='middle'%3EG8%3C/text%3E%3C/svg%3E">
+<title>gr8arcade — handmade browser games</title>
+<style>
+  :root {
+    --bg:#1a1423; --bg-2:#2d1b3d;
+    --ink:#f4e8c1; --bone:#e8d5a0;
+    --blood:#c43d3d; --moss:#6b9b5a; --rust:#d87b3c;
+    --shadow:#0b0612;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body {
+    min-height:100%;
+    background:radial-gradient(ellipse at top, var(--bg-2) 0%, var(--bg) 60%, var(--shadow) 100%);
+    color:var(--ink);
+    font-family:'Courier New', ui-monospace, monospace;
+    -webkit-font-smoothing:antialiased;
+  }
+  body {
+    min-height:100vh;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    padding:32px 20px;
+  }
+  .corner-deco {
+    position:fixed; font-size:11px;
+    letter-spacing:4px; color:var(--moss); opacity:0.55;
+    text-transform:uppercase;
+  }
+  .corner-deco.tl { top:18px; left:20px; }
+  .corner-deco.br { bottom:18px; right:20px; }
+  .wrap { max-width:680px; width:100%; text-align:center; }
+  h1 {
+    font-size:clamp(36px, 8vw, 64px);
+    font-weight:900; letter-spacing:6px;
+    color:var(--bone);
+    text-shadow:3px 3px 0 var(--blood), 6px 6px 0 var(--shadow);
+    line-height:1; margin-bottom:10px;
+  }
+  .tagline {
+    font-size:clamp(11px, 2.4vw, 14px);
+    letter-spacing:6px; color:var(--rust);
+    text-transform:uppercase;
+    margin-bottom:48px;
+  }
+  .games {
+    display:flex; flex-direction:column;
+    gap:14px; margin-bottom:48px;
+  }
+  .game-card {
+    display:flex; flex-direction:column;
+    text-decoration:none; color:var(--bone);
+    background:rgba(196,61,61,0.08);
+    border:3px solid var(--bone);
+    padding:20px 24px; text-align:left;
+    box-shadow:5px 5px 0 var(--shadow);
+    transition:transform 0.1s, box-shadow 0.1s, background 0.2s;
+  }
+  .game-card:hover {
+    transform:translate(-2px, -2px);
+    box-shadow:7px 7px 0 var(--shadow);
+    background:rgba(196,61,61,0.16);
+  }
+  .game-card:active {
+    transform:translate(2px, 2px);
+    box-shadow:3px 3px 0 var(--shadow);
+  }
+  .game-title {
+    font-size:clamp(18px, 3.6vw, 24px);
+    font-weight:900; letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:6px;
+  }
+  .game-title .arrow {
+    color:var(--rust); float:right; margin-left:8px;
+  }
+  .game-blurb {
+    font-size:clamp(12px, 2.4vw, 14px);
+    color:var(--ink); opacity:0.8;
+    line-height:1.5; letter-spacing:1px;
+  }
+  .game-meta {
+    margin-top:10px;
+    font-size:11px; letter-spacing:3px;
+    color:var(--moss); text-transform:uppercase;
+  }
+  .game-card.coming-soon {
+    border-color:#5a4a3a; color:#7a6a5a;
+    background:rgba(58,36,25,0.18);
+    cursor:default;
+    box-shadow:none;
+  }
+  .game-card.coming-soon:hover {
+    transform:none; box-shadow:none;
+    background:rgba(58,36,25,0.18);
+  }
+  .game-card.coming-soon .game-title .arrow,
+  .game-card.coming-soon .game-meta { color:#5a4a3a; }
+  footer {
+    font-size:11px; letter-spacing:3px;
+    color:var(--moss); opacity:0.7;
+    text-align:center;
+    text-transform:uppercase;
+    line-height:1.7;
+  }
+  footer a { color:var(--rust); text-decoration:none; }
+  footer a:hover { color:var(--bone); }
+</style>
+</head>
+<body>
+  <div class="corner-deco tl">◆ gr8 ◆</div>
+  <div class="corner-deco br">◆ arcade ◆</div>
+
+  <div class="wrap">
+    <h1>GR8ARCADE</h1>
+    <div class="tagline">━ handmade browser games ━</div>
+
+    <div class="games">
+      <a class="game-card" href="https://jvbeasts.gr8arcade.com">
+        <div class="game-title">Jack &amp; the Beasts <span class="arrow">→</span></div>
+        <div class="game-blurb">
+          Pull back, aim, release. Pixel archery against blobs, scurriers,
+          flyers, and a three-headed thing in the wood.
+        </div>
+        <div class="game-meta">◆ 2 levels · mobile + desktop ◆</div>
+      </a>
+
+      <div class="game-card coming-soon">
+        <div class="game-title">More soon <span class="arrow">…</span></div>
+        <div class="game-blurb">New games appear here as they're built.</div>
+        <div class="game-meta">◆ in the workshop ◆</div>
+      </div>
+    </div>
+
+    <footer>
+      built by hand · <a href="https://jvbeasts.gr8arcade.com">play jack</a>
+    </footer>
+  </div>
+</body>
+</html>
